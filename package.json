@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vinejs/vine": "^2.1.0",
     "axios": "^1.7.2",
     "bcrypt": "^5.1.1",
     "mongoose": "^8.5.1",
