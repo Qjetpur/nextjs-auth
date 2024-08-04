@@ -120,7 +120,9 @@ const connectToDatabase = async () => {
 
 module.exports = connectToDatabase;
 
-# Create a .env file in the root of your project and add your MongoDB connection string:
+
+
+## Create a .env file in the root of your project and add your MongoDB connection string:
 
 MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/<dbname>?retryWrites=true&w=majority
    
