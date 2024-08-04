@@ -2,10 +2,7 @@
 First, run the development server:
 
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+
 Open http://localhost:3000 with your browser to see the result.
 
 After that go to http://localhost:3000/login page  For Login 
@@ -97,6 +94,35 @@ MongoDB is a popular NoSQL database known for its scalability, flexibility, and 
    Mongoose is an ODM (Object Data Modeling) library for MongoDB and Node.js.
    ```bash
    npm install mongoose
+
+## Creating a MongoDB Connection
+
+### Create a Database Connection File:
+Create a file named `db.js` to handle the database connection.
+
+```javascript
+const mongoose = require('mongoose');
+
+const connectToDatabase = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+    });
+    console.log('Connected to MongoDB');
+  } catch (error) {
+    console.error('Error connecting to MongoDB:', error);
+    process.exit(1);
+  }
+};
+
+module.exports = connectToDatabase;
+
+# Create a .env file in the root of your project and add your MongoDB connection string:
+
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/<dbname>?retryWrites=true&w=majority
    
 ## Deploy on Vercel
 The easiest way to deploy your Next.js app is to use the Vercel Platform from the creators of Next.js.
