@@ -3,9 +3,11 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
+import api from '../api';
 import Email from "next-auth/providers/email";
 
 export default function Login() {
+  // const apiUrl = process.env.API_URL;
   const params = useSearchParams();
   const [authState, setAuthState] = useState({
     email: "",
@@ -19,8 +21,8 @@ export default function Login() {
     console.log("This auth State is", authState);
 
     try {
-      const res = await axios.post(
-        "http://localhost:3000/api/auth/login",
+      const res = await api.post(
+        `/api/auth/login`,
         authState
       );
       setLoading(false);

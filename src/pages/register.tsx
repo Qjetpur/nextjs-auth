@@ -3,9 +3,11 @@ import React,{useState} from "react";
 import Link from 'next/link';
 import axios from 'axios';
 import {useRouter} from "next/navigation"
+import api from '../api';
 
 
 export default function  Register() {
+  // const apiUrl = process.env.API_URL;
   const router=useRouter();
     const [authState,setAuthState]=useState({
         name:"",
@@ -22,7 +24,7 @@ export default function  Register() {
 const submitForm = () => {
   setLoading(true);
   console.log("This auth State is", authState);
-  axios.post("http://localhost:3000/api/auth/register", authState)
+  api.post(`/api/auth/register`, authState)
     .then((res) => {
       setLoading(false);
       const response = res.data;
