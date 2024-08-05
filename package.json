@@ -12,6 +12,7 @@
     "@vinejs/vine": "^2.1.0",
     "axios": "^1.7.2",
     "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
     "mongoose": "^8.5.1",
     "next": "14.2.5",
     "next-auth": "^4.24.7",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
+    "@types/cors": "^2.8.17",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

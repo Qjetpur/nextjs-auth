@@ -7,7 +7,7 @@ import api from '../api';
 
 
 export default function  Register() {
-  // const apiUrl = process.env.API_URL;
+  const apiUrl = process.env.API_URL;
   const router=useRouter();
     const [authState,setAuthState]=useState({
         name:"",
@@ -24,7 +24,7 @@ export default function  Register() {
 const submitForm = () => {
   setLoading(true);
   console.log("This auth State is", authState);
-  api.post(`/api/auth/register`, authState)
+  api.post(`${apiUrl}/api/auth/register`, authState)
     .then((res) => {
       setLoading(false);
       const response = res.data;
